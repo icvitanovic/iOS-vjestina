@@ -47,10 +47,14 @@ class QuizViewController: UIViewController, AnswerDelegate {
         startQuizButton.setTitleColor(UIColor.white, for: .normal)
         scrollView.snp.makeConstraints({(make) -> Void in
             make.top.equalTo(startQuizButton.snp.bottom).offset(10)
-            make.left.equalTo(self.view).offset(20)
-            make.right.equalTo(self.view).inset(20)
+            make.left.equalTo(self.view)
+            make.right.equalTo(self.view)
             make.bottom.equalTo(self.view).inset(20)
         })
+        scrollView.isHidden = true
+    }
+    
+    override func viewDidLayoutSubviews() {
         addQuestions()
     }
     
@@ -59,7 +63,7 @@ class QuizViewController: UIViewController, AnswerDelegate {
             scrollView.contentSize = CGSize(width: CGFloat(quiz.questions.count) * CGFloat(scrollView.frame.width), height: CGFloat(scrollView.frame.height))
             scrollView.isPagingEnabled = true
             scrollView.isScrollEnabled = false
-            currentQuestion = 1
+            self.currentQuestion = 1
             for i in 0 ..< quiz.questions.count{
                 let question = quiz.questions[i]
                 let questionView = QuestionView(question: question, frame: CGRect(x: scrollView.frame.width * CGFloat(i), y: 0, width: scrollView.frame.width, height: scrollView.frame.height))
@@ -69,9 +73,17 @@ class QuizViewController: UIViewController, AnswerDelegate {
         }
     }
     
+    @IBAction func startQuizTap(_ sender: Any) {
+        scrollView.isHidden = false
+    }
+    
     func onAnswer(sender: UIButton, isCorrect: Bool) {
-        scrollView.setContentOffset(CGPoint(x: CGFloat(CGFloat(currentQuestion) * scrollView.frame.width), y: 0), animated: true)
-        currentQuestion = currentQuestion + 1
+        if let quiz = quiz{
+            if(self.currentQuestion < quiz.questions.count){
+                scrollView.setContentOffset(CGPoint(x: CGFloat(CGFloat(currentQuestion) * scrollView.frame.width), y: 0), animated: true)
+                self.currentQuestion = self.currentQuestion + 1
+            }
+        }
     }
 
 

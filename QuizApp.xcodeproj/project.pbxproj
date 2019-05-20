@@ -29,6 +29,9 @@
 		2BB6D7E8225F8F5F00C57248 /* QuizCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB6D7E7225F8F5F00C57248 /* QuizCategory.swift */; };
 		2BB6D7EB225F92BD00C57248 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB6D7E9225F92BD00C57248 /* QuestionView.swift */; };
 		2BB6D7EC225F92BD00C57248 /* QuestionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BB6D7EA225F92BD00C57248 /* QuestionView.xib */; };
+		2BD722A82292AAFC002AD20F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD722A72292AAFC002AD20F /* AuthService.swift */; };
+		2BD722AA2292ABD7002AD20F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD722A92292ABD7002AD20F /* AuthToken.swift */; };
+		2BD722AC2292AECD002AD20F /* LoginParmeters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD722AB2292AECD002AD20F /* LoginParmeters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		2BB6D7E7225F8F5F00C57248 /* QuizCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategory.swift; sourceTree = "<group>"; };
 		2BB6D7E9225F92BD00C57248 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		2BB6D7EA225F92BD00C57248 /* QuestionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionView.xib; sourceTree = "<group>"; };
+		2BD722A72292AAFC002AD20F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		2BD722A92292ABD7002AD20F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
+		2BD722AB2292AECD002AD20F /* LoginParmeters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginParmeters.swift; sourceTree = "<group>"; };
 		789F8E143B66D2D9EF69D9A8 /* Pods-QuizApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizApp.release.xcconfig"; path = "Target Support Files/Pods-QuizApp/Pods-QuizApp.release.xcconfig"; sourceTree = "<group>"; };
 		85E497B20307BC3AB11D9FEC /* Pods-QuizApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizApp.debug.xcconfig"; path = "Target Support Files/Pods-QuizApp/Pods-QuizApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +145,8 @@
 				2BB6D7E1225F659400C57248 /* Quiz.swift */,
 				2BB6D7E3225F666600C57248 /* Question.swift */,
 				2BB6D7E7225F8F5F00C57248 /* QuizCategory.swift */,
+				2BD722A92292ABD7002AD20F /* AuthToken.swift */,
+				2BD722AB2292AECD002AD20F /* LoginParmeters.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				2BB6D7DF225F64FA00C57248 /* QuizService.swift */,
+				2BD722A72292AAFC002AD20F /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -303,11 +312,14 @@
 				2BB6D7EB225F92BD00C57248 /* QuestionView.swift in Sources */,
 				2B6B34EF229205F3001DBF04 /* QuizDifficultyView.swift in Sources */,
 				2B6B34EC2291FF5C001DBF04 /* QuizTableViewCell.swift in Sources */,
+				2BD722AA2292ABD7002AD20F /* AuthToken.swift in Sources */,
 				2B6B34F22292177F001DBF04 /* QuizViewController.swift in Sources */,
 				2B6B34E22291F242001DBF04 /* LoginViewController.swift in Sources */,
 				2BB6D7C4225F5AD600C57248 /* AppDelegate.swift in Sources */,
 				2BB6D7E2225F659400C57248 /* Quiz.swift in Sources */,
 				2BB6D7DD225F5F7B00C57248 /* InitialViewController.swift in Sources */,
+				2BD722A82292AAFC002AD20F /* AuthService.swift in Sources */,
+				2BD722AC2292AECD002AD20F /* LoginParmeters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
