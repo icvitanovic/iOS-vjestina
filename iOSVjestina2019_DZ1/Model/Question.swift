@@ -8,24 +8,16 @@
 
 import Foundation
 
-class Question{
+struct Question: Codable{
     let id: Int
     let question: String
     let answers: [String]
     let correctAnswer: Int
     
-    init?(json: Any) {
-        if let jsonDict = json as? [String: Any],
-            let id = jsonDict["id"] as? Int,
-            let question = jsonDict["question"] as? String,
-            let answers = jsonDict["answers"] as? [String],
-            let correctAnswer = jsonDict["correct_answer"] as? Int{
-            self.id = id
-            self.question = question
-            self.answers = answers
-            self.correctAnswer = correctAnswer
-        }else{
-            return nil
-        }
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case question
+        case answers
+        case correctAnswer = "correct_answer"
     }
 }

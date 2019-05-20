@@ -10,27 +10,20 @@ import Foundation
 import UIKit
 
 class QuizService{
-    let urlString = "https://iosquiz.herokuapp.com/api/quizzes"
+    private let urlString = "https://iosquiz.herokuapp.com/api/quizzes"
     func fetchQuizzes(completion: @escaping ((Array<Quiz>?) -> Void)){
         if let url = URL(string: urlString){
             let request = URLRequest(url: url)
             let dataTask = URLSession.shared.dataTask(with: request){ (data, response, error) in
                 if let data = data{
+                    let decoder = JSONDecoder()
                     do{
-                        let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        if let quizzesJson = json as? [String: Any]{
-                            if let quizzesArrayJson = quizzesJson["quizzes"] as? [[String: Any]]{
-                                var quizzes: Array<Quiz> = []
-                                for quizJson in quizzesArrayJson{
-                                    if let quiz = Quiz(json: quizJson){
-                                        quizzes.append(quiz)
-                                    }
-                                }
-                                completion(quizzes)
-                            }
-                        }
+                        let quizzesDict = try decoder.decode(QuizzesDict.self, from: data)
+                        print(quizzesDict)
+                        completion(quizzesDict.quizzes)
                     }
                     catch{
+                        print(error.localizedDescription)
                         completion(nil)
                     }
                 }

@@ -19,7 +19,7 @@ extension QuizCategoryColor{
         get {
             switch self{
             case .sports:
-                return UIColor(red:0.22, green:0.99, blue:0.21, alpha:1.0)
+                return UIColor(red:1.00, green:0.58, blue:0.19, alpha:1.0)
             
             case .science:
                 return UIColor(red:0.58, green:0.73, blue:0.98, alpha:1.0)
