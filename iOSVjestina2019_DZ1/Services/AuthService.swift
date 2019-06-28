@@ -26,7 +26,6 @@ class AuthService{
                         let decoder = JSONDecoder()
                         do{
                             let authToken = try decoder.decode(AuthToken.self, from: data)
-                            print(authToken)
                             completion(authToken)
                         }
                         catch{
@@ -48,4 +47,44 @@ class AuthService{
             completion(nil)
         }
     }
+    
+    func getLoginToken() -> String? {
+        return UserDefaults.standard.string(forKey: "loginToken") ?? nil
+    }
+    
+    func saveLoginToken(authToken: AuthToken){
+        UserDefaults.standard.set(authToken.token, forKey: "loginToken")
+    }
+    
+    func getUsername() -> String? {
+        return UserDefaults.standard.string(forKey: "username") ?? nil
+    }
+    
+    func saveUsername(username: String){
+        UserDefaults.standard.set(username, forKey: "username")
+    }
+    
+    func getUserId() -> Int? {
+        if let userIdString = UserDefaults.standard.string(forKey: "userId"){
+            return Int(userIdString)
+        }
+        else{
+            return nil
+        }
+    }
+    
+    func saveUserId(authToken: AuthToken){
+        UserDefaults.standard.set(authToken.userId, forKey: "userId")
+    }
+    
+    func logout(){
+        UserDefaults.standard.removeObject(forKey: "loginToken")
+        UserDefaults.standard.removeObject(forKey: "userId")
+    }
+    
+    func isAuthenticated() -> Bool{
+        let token = self.getLoginToken()
+        return token != nil
+    }
+    
 }

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="QuizApp" customModuleProvider="target">
             <connections>
+                <outlet property="appTitle" destination="5E3-bm-hOU" id="6Zc-Jn-gOm"/>
                 <outlet property="loginButton" destination="ZaP-nf-8Sz" id="LnB-cI-kjq"/>
                 <outlet property="passwordTextField" destination="CD1-b1-hPp" id="MVD-Yf-VR3"/>
                 <outlet property="usernameTextField" destination="YP8-d7-Jru" id="Gdr-sn-3hd"/>
@@ -24,30 +25,38 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaP-nf-8Sz">
-                    <rect key="frame" x="164" y="270" width="46" height="30"/>
+                    <rect key="frame" x="164" y="359.5" width="46" height="30"/>
                     <state key="normal" title="Button"/>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YP8-d7-Jru">
-                    <rect key="frame" x="60" y="120" width="255" height="30"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YP8-d7-Jru">
+                    <rect key="frame" x="60" y="209.5" width="255" height="30"/>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" textContentType="username"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CD1-b1-hPp">
-                    <rect key="frame" x="60" y="190" width="255" height="30"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CD1-b1-hPp">
+                    <rect key="frame" x="60" y="279.5" width="255" height="30"/>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuizApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5E3-bm-hOU">
+                    <rect key="frame" x="69" y="80" width="237" height="71.5"/>
+                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="60"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="CD1-b1-hPp" firstAttribute="top" secondItem="YP8-d7-Jru" secondAttribute="bottom" constant="40" id="4eb-LX-rXw"/>
+                <constraint firstItem="5E3-bm-hOU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4nI-YK-gce"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CD1-b1-hPp" secondAttribute="trailing" constant="60" id="AKh-ES-9fq"/>
-                <constraint firstItem="YP8-d7-Jru" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="Ehn-l8-AmZ"/>
+                <constraint firstItem="YP8-d7-Jru" firstAttribute="top" secondItem="5E3-bm-hOU" secondAttribute="bottom" constant="58" id="Ehn-l8-AmZ"/>
                 <constraint firstItem="CD1-b1-hPp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="K9h-AB-wEv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YP8-d7-Jru" secondAttribute="trailing" constant="60" id="XBd-lI-UUh"/>
                 <constraint firstItem="ZaP-nf-8Sz" firstAttribute="top" secondItem="CD1-b1-hPp" secondAttribute="bottom" constant="50" id="dfm-iH-JDa"/>
+                <constraint firstItem="5E3-bm-hOU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="ttg-jT-ERe"/>
                 <constraint firstItem="YP8-d7-Jru" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="uIZ-G4-5Ox"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

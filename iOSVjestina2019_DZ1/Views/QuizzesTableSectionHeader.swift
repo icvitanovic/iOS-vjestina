@@ -14,10 +14,13 @@ class QuizzesTableSectionHeader: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        backgroundColor = UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0)
+    }
+    
+    func setup(category: String){
+//        backgroundColor = UIColor(red:0.16, green:0.50, blue:0.73, alpha:1.0)
+        backgroundColor = QuizCategoryColor(rawValue: category)?.value
         titleLabel = UILabel()
-        titleLabel.text = "Quizzes"
+        titleLabel.text = category
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.textColor = UIColor.white
         self.addSubview(titleLabel)

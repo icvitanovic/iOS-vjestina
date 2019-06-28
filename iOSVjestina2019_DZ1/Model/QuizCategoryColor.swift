@@ -24,6 +24,7 @@ extension QuizCategoryColor{
             case .science:
                 return UIColor(red:0.58, green:0.73, blue:0.98, alpha:1.0)
             }
+            
         }
     }
 }

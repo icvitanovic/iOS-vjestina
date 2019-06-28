@@ -13,17 +13,17 @@ protocol AnswerDelegate: AnyObject{
 }
 
 class QuestionView: UIView {
-    var question: Question?
+    var question: Question2?
     var label: UILabel?
     var button0: UIButton?
     var button1: UIButton?
     var button2: UIButton?
     var button3: UIButton?
-    let buttonColor: UIColor = UIColor(red:0.78, green:0.80, blue:0.82, alpha:1.0)
+    let buttonColor: UIColor = UIColor.white
     
     weak var delegate: AnswerDelegate?
     
-    init(question: Question, frame: CGRect){
+    init(question: Question2, frame: CGRect){
         self.question = question
         super.init(frame: frame)
         if let question = self.question{
@@ -33,6 +33,11 @@ class QuestionView: UIView {
             button1 = UIButton(frame: CGRect(x: buttonWidth + 20, y: 50, width: buttonWidth, height: 40))
             button2 = UIButton(frame: CGRect(x: 10, y: 100, width: buttonWidth, height: 40))
             button3 = UIButton(frame: CGRect(x: buttonWidth + 20, y: 100, width: buttonWidth, height: 40))
+            
+            button0?.layer.cornerRadius = 5
+            button1?.layer.cornerRadius = 5
+            button2?.layer.cornerRadius = 5
+            button3?.layer.cornerRadius = 5
             if let label = label {
                 label.text = question.question
                 label.textColor = UIColor.white
@@ -45,7 +50,7 @@ class QuestionView: UIView {
                 button0.backgroundColor = buttonColor
                 button0.setTitleColor(UIColor.black, for: .normal)
                 button0.setTitleColor(UIColor(red:0.51, green:0.51, blue:0.52, alpha:1.0), for: .highlighted)
-                button0.setTitle(question.answers[0], for: .normal)
+                button0.setTitle((question.answers as! [String])[0], for: .normal)
                 button0.tag = 0
                 button0.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
                 self.addSubview(button0)
@@ -54,7 +59,7 @@ class QuestionView: UIView {
                 button1.backgroundColor = buttonColor
                 button1.setTitleColor(UIColor.black, for: .normal)
                 button1.setTitleColor(UIColor(red:0.51, green:0.51, blue:0.52, alpha:1.0), for: .highlighted)
-                button1.setTitle(question.answers[1], for: .normal)
+                button1.setTitle((question.answers as! [String])[1], for: .normal)
                 button1.tag = 1
                 button1.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
                 
@@ -64,7 +69,7 @@ class QuestionView: UIView {
                 button2.backgroundColor = buttonColor
                 button2.setTitleColor(UIColor.black, for: .normal)
                 button2.setTitleColor(UIColor(red:0.51, green:0.51, blue:0.52, alpha:1.0), for: .highlighted)
-                button2.setTitle(question.answers[2], for: .normal)
+                button2.setTitle((question.answers as! [String])[2], for: .normal)
                 button2.tag = 2
                 button2.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
                 
@@ -74,7 +79,7 @@ class QuestionView: UIView {
                 button3.backgroundColor = buttonColor
                 button3.setTitleColor(UIColor.black, for: .normal)
                 button3.setTitleColor(UIColor(red:0.51, green:0.51, blue:0.52, alpha:1.0), for: .highlighted)
-                button3.setTitle(question.answers[3], for: .normal)
+                button3.setTitle((question.answers as! [String])[3], for: .normal)
                 button3.tag = 3
                 button3.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
                 

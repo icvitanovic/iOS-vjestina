@@ -18,9 +18,10 @@ class QuizTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0)
-        title.backgroundColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0)
-        quizDescription.backgroundColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0)
+//        self.backgroundColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0)
+        self.backgroundColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.0)
+        title.backgroundColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.0)
+        quizDescription.backgroundColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.0)
         title.textColor = UIColor.white
         quizDescription.textColor = UIColor.white
         quizImage.snp.makeConstraints({(make) -> Void in
@@ -28,6 +29,8 @@ class QuizTableViewCell: UITableViewCell {
             make.centerY.equalTo(self)
             make.left.equalTo(self).offset(5)
         })
+        
+        quizImage.layer.cornerRadius = 5
         quizDescription.sizeToFit()
     }
 
@@ -43,15 +46,16 @@ class QuizTableViewCell: UITableViewCell {
         quizDescription.text = ""
     }
     
-    func setup(withQuiz quiz: Quiz) {
+    func setup(withQuiz quiz: Quiz2) {
         self.title.text = quiz.title
-        self.quizDescription.text = quiz.description
-        let urlString = quiz.imageUrl
-        if let url = URL(string: urlString){
-            quizImage.kf.setImage(with: url)
+        self.quizDescription.text = quiz.quizDescription
+        if let urlString = quiz.imageUrl{
+            if let url = URL(string: urlString){
+                quizImage.kf.setImage(with: url)
+            }
         }
-        let difficultyView: QuizDifficultyView = QuizDifficultyView(difficulty: quiz.level, frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        difficultyView.backgroundColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0)
+        let difficultyView: QuizDifficultyView = QuizDifficultyView(difficulty: Int(quiz.level), frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        difficultyView.backgroundColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.0)
         self.addSubview(difficultyView)
         difficultyView.snp.makeConstraints({(make) -> Void in
             make.height.equalTo(22)

@@ -31,4 +31,9 @@ struct Quiz: Codable{
         case imageUrl = "image"
         case questions
     }
+    
+//    init(from decoder: Decoder) throws{
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        id = try values.decodeIfPresent(Int.self, forKey: .id)
+//    }
 }

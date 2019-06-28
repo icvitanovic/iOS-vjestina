@@ -24,20 +24,20 @@ class InitialViewController: UIViewController {
     }
 
     @IBAction func fetchButtonTapped(_ sender: UIButton) {
-        self.quizService.fetchQuizzes(){ (quizzes) in
-            if let quizzes = quizzes{
-                self.quizzes = quizzes
-                let randomIndex = Int.random(in: 0 ... quizzes.count-1)
-                let quiz = quizzes[randomIndex]
-                self.showQuiz(quiz: quiz)
-                self.showFunFact(quizzArray: quizzes, lookUpString: "NBA")
-            }
-            else{
-                let alert = UIAlertController(title: "Error", message: "Something went wrong", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(alert, animated: true)
-            }
-        }
+//        self.quizService.fetchQuizzes(){ (quizzes) in
+//            if let quizzes = quizzes{
+//                self.quizzes = quizzes
+//                let randomIndex = Int.random(in: 0 ... quizzes.count-1)
+//                let quiz = quizzes[randomIndex]
+//                self.showQuiz(quiz: quiz)
+//                self.showFunFact(quizzArray: quizzes, lookUpString: "NBA")
+//            }
+//            else{
+//                let alert = UIAlertController(title: "Error", message: "Something went wrong", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//                self.present(alert, animated: true)
+//            }
+//        }
     }
     
     func showFunFact(quizzArray: Array<Quiz>, lookUpString: String){
@@ -48,41 +48,41 @@ class InitialViewController: UIViewController {
         }
     }
     
-    func showQuiz(quiz: Quiz){
-        DispatchQueue.main.async {
-            self.removeQuestionView()
-            self.quizImageView.backgroundColor = UIColor.clear
-            self.quizImageView.image = nil
-            self.quizNameLabel.text = ""
-            self.quizNameLabel.backgroundColor = UIColor.clear
-        }
-        
-        self.quizService.getQuizImage(quiz: quiz) { (image) in
-            if(image == nil){
-                print("image is nil")
-            }
-            DispatchQueue.main.async {
-                self.quizImageView.image = image
-                self.quizImageView.backgroundColor = QuizCategoryColor(rawValue: quiz.category)?.value
-                self.quizNameLabel.text = quiz.title
-                self.quizNameLabel.backgroundColor = QuizCategoryColor(rawValue: quiz.category)?.value
-                if let firstQuestion = quiz.questions.first{
-                    self.addQuestionView(question: firstQuestion)
-                }
-            }
-        }
+//    func showQuiz(quiz: Quiz){
 //        DispatchQueue.main.async {
-//            self.quizNameLabel.text = quiz.title
-//            self.quizNameLabel.backgroundColor = QuizCategoryColor(rawValue: quiz.category)?.value
 //            self.removeQuestionView()
-//            if let firstQuestion = quiz.questions.first{
-//                self.addQuestionView(question: firstQuestion)
+//            self.quizImageView.backgroundColor = UIColor.clear
+//            self.quizImageView.image = nil
+//            self.quizNameLabel.text = ""
+//            self.quizNameLabel.backgroundColor = UIColor.clear
+//        }
+//
+//        self.quizService.getQuizImage(quiz: quiz) { (image) in
+//            if(image == nil){
+//                print("image is nil")
+//            }
+//            DispatchQueue.main.async {
+//                self.quizImageView.image = image
+//                self.quizImageView.backgroundColor = QuizCategoryColor(rawValue: quiz.category)?.value
+//                self.quizNameLabel.text = quiz.title
+//                self.quizNameLabel.backgroundColor = QuizCategoryColor(rawValue: quiz.category)?.value
+//                if let firstQuestion = quiz.questions.first{
+//                    self.addQuestionView(question: firstQuestion)
+//                }
 //            }
 //        }
-        
-    }
+////        DispatchQueue.main.async {
+////            self.quizNameLabel.text = quiz.title
+////            self.quizNameLabel.backgroundColor = QuizCategoryColor(rawValue: quiz.category)?.value
+////            self.removeQuestionView()
+////            if let firstQuestion = quiz.questions.first{
+////                self.addQuestionView(question: firstQuestion)
+////            }
+////        }
+//
+//    }
     
-    func addQuestionView(question: Question){
+    func addQuestionView(question: Question2){
         let questionView = QuestionView(question: question, frame: CGRect(x: 10, y: 200, width: self.view.frame.width - 20, height: 60))
         questionView.isUserInteractionEnabled = true
         questionView.translatesAutoresizingMaskIntoConstraints = false
